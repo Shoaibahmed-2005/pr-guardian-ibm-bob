@@ -40,6 +40,8 @@ Users interact with PR Guardian through three flexible interfaces:
 
 **IBM watsonx.ai Granite Models:** Unlike competitors using generic AI models, PR Guardian leverages IBM's Granite-3-8B-Instruct model, specifically optimized for code understanding and security analysis. The implementation includes sophisticated IAM token authentication with caching, demonstrating enterprise-grade IBM Cloud integration.
 
+**Enterprise Scalability:** PR Guardian scales effortlessly to any GitHub repository size—from small personal projects to massive enterprise monorepos. Teams can self-host the MCP server for complete control over data and infrastructure. The multi-provider AI architecture (watsonx, OpenAI, Anthropic) ensures continuous operation even if one provider experiences downtime, making it suitable for mission-critical CI/CD pipelines.
+
 **Production-Ready Engineering:** Built in just 2.5 hours with IBM Bob IDE, PR Guardian includes features typically found in mature products: TTL-based caching (1-hour), exponential backoff retry logic (3 attempts), graceful AI fallback (never crashes), multi-method JSON parsing (handles edge cases), and structured logging with JSON mode for CI environments.
 
 **Zero-Crash Design:** PR Guardian implements comprehensive error handling at every integration point. If watsonx.ai is unavailable, it returns empty results with clear warnings rather than failing. If GitHub rate limits are hit, it retries with exponential backoff. If JSON parsing fails, it tries three extraction methods before gracefully degrading. This resilience makes it production-ready from day one.

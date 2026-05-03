@@ -102,6 +102,54 @@ pr-guardian release-notes https://github.com/owner/repo/pull/123
 
 ---
 
+## 📸 Screenshots
+
+### CLI Output Example
+
+Here's what PR Guardian's analysis looks like in your terminal:
+
+```
+╭─────────────────────────────────────────────────────────────────────────────╮
+│                          PR Guardian Analysis Results                        │
+│                    https://github.com/facebook/react/pull/12345              │
+╰─────────────────────────────────────────────────────────────────────────────╯
+
+┏━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Category    ┃ Severity ┃ Description                                       ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Security    │ 🔴 CRITICAL │ SQL injection vulnerability in user input       │
+│             │          │ Suggestion: Use parameterized queries             │
+│             │          │ Line: src/database.py:45                          │
+├─────────────┼──────────┼───────────────────────────────────────────────────┤
+│ Security    │ 🟡 WARNING  │ API key exposed in configuration file           │
+│             │          │ Suggestion: Move to environment variables         │
+│             │          │ Line: config/settings.py:12                       │
+├─────────────┼──────────┼───────────────────────────────────────────────────┤
+│ Bugs        │ 🟡 WARNING  │ Potential null pointer dereference              │
+│             │          │ Suggestion: Add null check before access          │
+│             │          │ Line: src/utils.py:78                             │
+├─────────────┼──────────┼───────────────────────────────────────────────────┤
+│ Tests       │ 🔵 INFO     │ Missing test coverage for error handling        │
+│             │          │ Suggestion: Add tests for exception scenarios     │
+│             │          │ Line: src/api.py:120-135                          │
+├─────────────┼──────────┼───────────────────────────────────────────────────┤
+│ Quality     │ 🔵 INFO     │ Function complexity exceeds recommended limit   │
+│             │          │ Suggestion: Refactor into smaller functions       │
+│             │          │ Line: src/processor.py:200                        │
+└─────────────┴──────────┴───────────────────────────────────────────────────┘
+
+✅ Analysis complete! Found 5 findings (1 critical, 2 warnings, 2 info)
+```
+
+**Key Features Shown:**
+- 🎨 **Color-coded severity levels** (red for critical, yellow for warnings, blue for info)
+- 📍 **Specific line numbers** for each finding
+- 💡 **Actionable suggestions** for every issue
+- 📊 **Organized by category** (Security, Bugs, Tests, Quality)
+- ⚡ **Rich terminal UI** with beautiful tables and panels
+
+---
+
 ## ⚙️ Configuration
 
 ### Config File: `~/.pr-guardian/config.yaml`
